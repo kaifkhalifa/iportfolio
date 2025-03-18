@@ -229,11 +229,13 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 #hero:before {
   content: "";
-  background: linear-gradient(to right, rgba(5, 13, 24, 0.8), rgba(5, 13, 24, 0.4));
+  background: linear-gradient(135deg, rgba(5, 13, 24, 0.9), rgba(10, 25, 47, 0.75), rgba(15, 34, 65, 0.6));
   position: absolute;
   bottom: 0;
   top: 0;
@@ -242,24 +244,40 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-#hero .hero-container {
+#hero .hero-content {
   position: relative;
   z-index: 2;
-  min-width: 300px;
+}
+
+#hero .hero-text {
+  padding-right: 30px;
 }
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 72px;
+  font-size: 64px;
   font-weight: 800;
   line-height: 1.1;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+#hero h1:after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background: #149ddd;
+  border-radius: 2px;
 }
 
 #hero p {
   color: #fff;
   margin-bottom: 50px;
+  margin-top: 30px;
   font-size: 28px;
   font-family: "Poppins", sans-serif;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
@@ -272,9 +290,226 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 3px solid #149ddd;
 }
 
+#hero .hero-projects {
+  padding-left: 30px;
+  max-height: 90vh;
+  overflow-y: auto;
+  /* Add custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Custom scrollbar for WebKit browsers */
+#hero .hero-projects::-webkit-scrollbar {
+  width: 5px;
+}
+
+#hero .hero-projects::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#hero .hero-projects::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+#hero .hero-project-card {
+  background: linear-gradient(135deg, rgba(41, 50, 60, 0.7), rgba(20, 157, 221, 0.4));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+#hero .hero-project-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, rgba(41, 50, 60, 0.8), rgba(20, 157, 221, 0.6));
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#hero .project-img {
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+}
+
+#hero .project-img:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+  z-index: 1;
+}
+
+#hero .project-img img {
+  transition: all 0.6s ease;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0.95;
+}
+
+/* Custom styling for each project screenshot */
+#hero .hero-project-card:nth-child(1) .project-img {
+  height: 220px;
+}
+
+#hero .hero-project-card:nth-child(1) .project-img img {
+  object-position: top center;
+}
+
+#hero .hero-project-card:nth-child(2) .project-img {
+  height: 210px;
+}
+
+#hero .hero-project-card:nth-child(2) .project-img img {
+  object-position: top center;
+}
+
+#hero .hero-project-card:nth-child(3) .project-img {
+  height: 190px;
+}
+
+#hero .hero-project-card:nth-child(3) .project-img img {
+  object-position: center top;
+}
+
+#hero .hero-project-card:hover .project-img img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+#hero .project-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+#hero .project-info:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 40px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+
+#hero .project-info h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#hero .project-links {
+  text-align: right;
+}
+
+#hero .project-btn {
+  display: inline-block;
+  padding: 8px 15px;
+  background: rgba(20, 157, 221, 0.8);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#hero .project-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+#hero .project-btn:hover {
+  background: rgba(20, 157, 221, 1);
+  transform: translateX(5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#hero .project-btn:hover:before {
+  left: 100%;
+}
+
+#hero .project-btn i {
+  margin-left: 5px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* Custom colors for each project button */
+#hero .hero-project-card:nth-child(1) .project-btn {
+  background: rgba(103, 58, 183, 0.8); /* Purple for MajorMatchmaker */
+}
+
+#hero .hero-project-card:nth-child(1) .project-btn:hover {
+  background: rgba(103, 58, 183, 1);
+}
+
+#hero .hero-project-card:nth-child(2) .project-btn {
+  background: rgba(0, 150, 136, 0.8); /* Teal for NeuronSerge */
+}
+
+#hero .hero-project-card:nth-child(2) .project-btn:hover {
+  background: rgba(0, 150, 136, 1);
+}
+
+#hero .hero-project-card:nth-child(3) .project-btn {
+  background: rgba(33, 33, 33, 0.8); /* Dark gray for Clickio */
+}
+
+#hero .hero-project-card:nth-child(3) .project-btn:hover {
+  background: rgba(33, 33, 33, 1);
+}
+
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
+  }
+}
+
+@media (max-width: 991px) {
+  #hero .hero-text,
+  #hero .hero-projects {
+    padding: 20px;
+  }
+  
+  #hero .hero-projects {
+    margin-top: 30px;
+    max-height: 400px;
   }
 }
 
@@ -283,11 +518,117 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
     line-height: 36px;
   }
-  #hero h2 {
+  #hero p {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
   }
+  #hero .hero-projects {
+    margin-top: 40px;
+    max-height: 300px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Projects Cards Section
+--------------------------------------------------------------*/
+.projects-cards {
+  padding: 60px 0;
+  padding-top: 100px;
+  overflow: hidden;
+  background: #f9f9f9;
+  margin-left: 300px;
+}
+
+@media (max-width: 1199px) {
+  .projects-cards {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+}
+
+.projects-cards .project-card {
+  background: #fff;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 30px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-cards .project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.projects-cards .project-img {
+  overflow: hidden;
+  position: relative;
+}
+
+.projects-cards .project-img img {
+  transition: all 0.6s ease;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.projects-cards .project-card:hover .project-img img {
+  transform: scale(1.1);
+}
+
+.projects-cards .project-info {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-cards .project-info h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2c4964;
+  font-family: "Raleway", sans-serif;
+}
+
+.projects-cards .project-info p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.projects-cards .project-links {
+  margin-top: auto;
+}
+
+.projects-cards .project-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #149ddd;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.projects-cards .project-btn:hover {
+  background: #37b3ed;
+  transform: translateX(5px);
+}
+
+.projects-cards .project-btn i {
+  margin-left: 5px;
+  font-size: 16px;
+  vertical-align: middle;
 }
 
 /*--------------------------------------------------------------
