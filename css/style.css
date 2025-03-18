@@ -386,6 +386,14 @@ h1, h2, h3, h4, h5, h6 {
   object-position: center top;
 }
 
+#hero .hero-project-card:nth-child(4) .project-img {
+  height: 200px;
+}
+
+#hero .hero-project-card:nth-child(4) .project-img img {
+  object-position: top center;
+}
+
 #hero .hero-project-card:hover .project-img img {
   transform: scale(1.05);
   opacity: 1;
@@ -492,7 +500,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .hero-project-card:nth-child(3) .project-btn:hover {
-  background: rgba(33, 33, 33, 1);
+  background-color: rgba(33, 33, 33, 1);
+}
+
+#hero .hero-project-card:nth-child(4) .project-btn {
+  background-color: rgba(0, 122, 255, 0.8);
+}
+
+#hero .hero-project-card:nth-child(4) .project-btn:hover {
+  background-color: rgba(0, 122, 255, 1);
 }
 
 @media (min-width: 1024px) {
